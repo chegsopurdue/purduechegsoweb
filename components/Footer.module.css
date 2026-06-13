@@ -1,0 +1,128 @@
+.footer {
+  background: var(--black);
+  border-top: 3px solid var(--gold);
+  padding: 2.5rem 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.brand {}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.logoImg {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.wordmark {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.wordmark em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.tagline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  max-width: 210px;
+  margin-top: 4px;
+}
+
+.social {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.socialBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid rgba(194, 138, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.socialBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.col {}
+
+.colTitle {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 7px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--white);
+}
+
+.bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(194, 138, 0, 0.2);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.badge {
+  font-size: 14px;
+  color: var(--gold);
+  border: 1px solid rgba(194, 138, 0, 0.4);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,118 @@
+.hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Background photo layer */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Shown when no bgImage prop is passed */
+.bgPlaceholder {
+  background: linear-gradient(135deg, var(--black) 0%, var(--black) 100%);
+}
+
+/* Overlay — darkens the photo so text is always readable */
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* Also add a bottom-to-top gradient for extra legibility at the text area */
+  background: linear-gradient(
+    to top,
+    rgba(14, 22, 40, 0.85) 0%,
+    rgba(14, 22, 40, 0.1) 70%,
+    transparent 100%
+  ); /* !important; */
+}
+
+/* Text content */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem 3.5rem;
+  max-width: 1280px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  /* border: 1px solid rgba(194, 138, 0, 0.5); */
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: 1.1rem;
+  background: rgba(194, 138, 0, 0.08);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 84px;
+  line-height: 1.15;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.sub {
+  font-size: 24px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 1260px;
+  margin-bottom: 1.75rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 20px 44px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+}
+
+.btnGhost {
+  padding: 20px 44px;
+  background: white;
+  color: var(--black);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btnGhost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 30px;
+  }
+}
