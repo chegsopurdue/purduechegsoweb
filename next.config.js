@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // required for static export
   },
-  basePath: '/purduechegso.github.io',
-  assetPrefix: '/purduechegso.github.io/',
+  basePath: '/purdue-che-gso',
+  assetPrefix: '/purdue-che-gso/',
 }
 
 module.exports = nextConfig
