@@ -188,12 +188,12 @@ export const footerLinks = {
     { label: 'GSO Calendar',         href: "https://calendar.google.com/calendar/embed?src=gsochepurdue%40gmail.com&ctz=America%2FNew_York" },
   ],
   Activities: [
-    { label: 'Safety',         href: '/activities/safety' },
-    { label: 'Social Events',  href: '/activities/social' },
-    { label: 'Co-Curricular',  href: '/activities/co-curricular' },
-    { label: 'Sustainability', href: '/activities/sustainability' },
-    { label: 'Sports',         href: '/activities/sports' },
-    { label: 'Outreach',       href: '/activities/outreach' },
+    { label: 'Safety',                href: '/activities/safety' },
+    { label: 'Social and Cultural',   href: '/activities/social' },
+    { label: 'Co-Curricular',         href: '/activities/co-curricular' },
+    { label: 'Sustainability',        href: '/activities/sustainability' },
+    { label: 'Sports',                href: '/activities/sports' },
+    { label: 'Outreach',              href: '/activities/outreach' },
   ],
 }
 
