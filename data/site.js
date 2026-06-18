@@ -126,7 +126,7 @@ const communications = {initials: 'RR',
                         bio: 'Rafif is from Surabaya, Indonesia and completed his undergraduate degree in Mechanical Engineering specializing in Process Systems Engineering at the RWTH Aachen University in Germany. He is a 2nd-year PhD student working with Dr. Can Li to develop neural network architectures that satisfy hard constraints under uncertainty. He is a big Formula 1 fan and enjoys traveling, going to concerts, and trying new foods.', 
                       }
 
-export const officers = [president, vicePresident, advocacy, social_chair, coCurricular, outreach, safety, sports, cultural, pgsg, firstYear1, firstYear2, communications]
+export const officers = [president, vicePresident, advocacy, coCurricular, communications, safety, sports, cultural, social, pgsg, firstYear1, firstYear2, outreach]
 
 export const activities = [
   {
