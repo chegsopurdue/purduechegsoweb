@@ -14,9 +14,7 @@ export default function Safety() {
     <ActivityLayout
       title="Safety"
       icon="🥽"
-      intro="The GSO is committed to accounting for the safety of the students associated with the Davidson School of Chemical Engineering at Purdue University 
-      and to promoting a culture of safety within the department. We work closely with the department safety committee to ensure that student concerns are heard and addressed, 
-      and we organize events and initiatives to promote safety awareness and best practices among our members."
+      intro="The GSO is committed to accounting for the safety of the students associated with the Davidson School of Chemical Engineering at Purdue University and to promoting a culture of safety within the department. We work closely with the department safety committee to ensure that student concerns are heard and addressed, and we organize events and initiatives to promote safety awareness and best practices among our members."
     >
       <div className="actSection">
         <h2>Our Commitment</h2>

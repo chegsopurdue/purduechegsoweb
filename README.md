@@ -11,9 +11,9 @@ Built with **Next.js 16** (static export) + plain CSS Modules. No Tailwind, no h
 ```bash
 npm install
 npm run dev        # http://localhost:3000
+npm run lint        # ESLint (eslint-config-next)
+npm run build       # production build, outputs static export to out/
 ```
-
-> Scripts run with `NODE_OPTIONS=--openssl-legacy-provider` (see `package.json`) for compatibility with newer Node versions.
 
 ---
 
@@ -36,8 +36,8 @@ The footer copyright year (`© {currentYear} ...` in `components/Footer.jsx`) up
 
 | Route                       | File                                  | Purpose                              |
 |------------------------------|----------------------------------------|---------------------------------------|
-| `/`                          | `pages/index.jsx`                     | Home — hero, ticker, activities grid, symposium banner, calendar, officers, prospective section |
-| `/about`                     | `pages/about.jsx`                     | Officer bios, grouped by leadership/officer tier |
+| `/`                          | `pages/index.jsx`                     | Home — hero, ticker, activities grid, symposium banner, calendar, prospective section |
+| `/about`                     | `pages/about.jsx`                     | Officer bios |
 | `/symposium`                 | `pages/symposium.jsx`                 | Symposium info page |
 | `/prospective`               | `pages/prospective.jsx`               | Info for prospective students |
 | `/activities/safety`         | `pages/activities/safety.jsx`         | Activity sub-page (uses `ActivityLayout` + `Gallery`) |
@@ -70,10 +70,10 @@ The hero and symposium banner are designed to accept real Purdue photos.
 
 ### Symposium banner
 
-Same pattern — pass `bgImage` to `<SymposiumBanner>`:
+Same pattern — pass `bgImage` to `<SymposiumBanner>`, prefixed via the `prefix` helper so it resolves correctly under the GitHub Pages base path:
 
 ```jsx
-<SymposiumBanner bgImage="/images/forney-atrium.jpg" />
+<SymposiumBanner bgImage={`${prefix}/images/forney-atrium.jpg`} />
 ```
 
 ### Activity galleries
@@ -96,8 +96,7 @@ Officer roster, activity descriptions, nav links, footer links, and social links
 data/site.js
 ```
 
-- `officers` — array of officer objects (`initials`, `name`, `role`, `email`, `group`, `advisor`, `photo`, `bio`). Each officer is its own `const` (e.g. `president`, `vicePresident`) collected into the `officers` array at the bottom of the file — add a new `const` block and add it to that array for a new role, or remove one to drop a role.
-  - `group` controls which tier of the About page (`pages/about.jsx`) the card appears in: `top` (Leadership), `middle1` / `middle2` (Officers, two visual rows), `bottom` (Officers, bottom row). Reassign `group` to move someone between tiers.
+- `officers` — array of officer objects (`initials`, `name`, `role`, `email`, `advisor`, `photo`, `bio`). Each officer is its own `const` (e.g. `president`, `vicePresident`) collected into the `officers` array at the bottom of the file — add a new `const` block and add it to that array for a new role, or remove one to drop a role. The About page renders them in the order they appear in this array.
   - `photo` should point at a file in `public/images/board/` via the `prefix` helper, e.g. `` `${prefix}/images/board/dany5.jpeg` ``.
   - `bio` and `advisor` are optional — the About page only renders them if present.
 - `activities` — cards shown in the homepage activities grid. `icon` is an icon name from [`@tabler/icons-react`](https://tabler.io/icons); `href` should match one of the `pages/activities/*.jsx` routes.
@@ -130,9 +129,10 @@ The site is hosted on **GitHub Pages** and auto-deploys on every push to `main`.
 ### Auto-deploy workflow
 
 Every push to `main` triggers `.github/workflows/deploy.yml`, which:
-1. Checks out the repo and installs dependencies (`npm ci --legacy-peer-deps`)
-2. Runs `npm run build` → static export to `out/` (via `output: 'export'` in `next.config.js`)
-3. Uploads `out/` as a Pages artifact and deploys it via `actions/deploy-pages`
+1. Checks out the repo and installs dependencies (`npm ci`)
+2. Runs `npm run lint`
+3. Runs `npm run build` → static export to `out/` (via `output: 'export'` in `next.config.js`)
+4. Uploads `out/` as a Pages artifact and deploys it via `actions/deploy-pages`
 
 No manual steps needed after the initial GitHub Pages setup (Settings → Pages → Source: **GitHub Actions**).
 
@@ -173,12 +173,12 @@ purduechegsoweb/
 │   ├── CalendarEmbed.jsx / .module.css   ← Google Calendar embed
 │   ├── SymposiumBanner.jsx / .module.css
 │   ├── ProspectiveSection.jsx / .module.css
-│   ├── OfficersGrid.jsx / .module.css
 │   └── Footer.jsx / .module.css
 ├── data/
 │   └── site.js                           ← officers, activities, nav/footer links, socials
 ├── pages/
 │   ├── _app.jsx
+│   ├── _document.jsx                     ← font preconnect/stylesheet links
 │   ├── index.jsx                         ← home, set Hero bgImage here
 │   ├── about.jsx                         ← officer bios
 │   ├── symposium.jsx

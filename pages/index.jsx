@@ -5,7 +5,6 @@ import Ticker from '../components/Ticker'
 import ActivitiesGrid from '../components/ActivitiesGrid'
 import SymposiumBanner from '../components/SymposiumBanner'
 import ProspectiveSection from '../components/ProspectiveSection'
-import OfficersGrid from '../components/OfficersGrid'
 import Footer from '../components/Footer'
 import prefix from '../utils/prefix'
 import CalendarEmbed from '../components/CalendarEmbed'
@@ -41,11 +40,11 @@ export default function Home() {
       <ActivitiesGrid />
 
       {/*
-        Symposium banner background:
-        Same pattern — drop a photo in public/images/ and pass it here.
-        Example: <SymposiumBanner bgImage="/images/forney-atrium.jpg" />
+        Symposium banner background (optional):
+        Drop a photo in public/images/ and pass it here, prefixed via `prefix`.
+        Example: <SymposiumBanner bgImage={`${prefix}/images/forney-atrium.jpg`} />
       */}
-      <SymposiumBanner bgImage="/images/symposium-bg.jpg" />
+      <SymposiumBanner />
 
       <ProspectiveSection />
 
